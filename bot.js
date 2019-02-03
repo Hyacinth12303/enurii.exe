@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const prefix = "!spam";
 
 client.on('ready', () => {
     console.log('I feel alive');
@@ -13,7 +14,20 @@ client.on('message', (msg) => {
     }
 });
 
-client.on('message', async msg => {
+client.on ("message", (message) => {
+    msg = message.content.toLowerCase();
+    if (message.author.bot) return;
+    mention = message.content.users.first();
+    if (msg.startsWith (prefix + "send")) {
+        if (mention == null) { return; }
+        message.delete();
+        mentionMessage = message.content.slice (8);
+        mention.SendMessage (mentionMessage);
+        message.channel.send ("it has been done");
+
+client.on('message', async (bots, message, args) => {
+    let target = message.metions.user.first() || message.author
+    
     if (msg.content === '@everyone') {
         msg.channel.send(`@everyone`)
     }
@@ -24,5 +38,6 @@ client.on('message', async msg => {
         msg.channel.send(`@everyone`)
     }
 });
+
 
 client.login(process.env.BOT_TOKEN);
