@@ -9,7 +9,7 @@ client.on('ready', () => {
 
 client.on('message', (msg) => {
     if (msg.content === 'Hello Enurii') { 
-        msg.channel.send('Greetings... +y.mention()+');    
+        msg.channel.send('Greetings... {0.author.mention}');    
     }
 });
 
