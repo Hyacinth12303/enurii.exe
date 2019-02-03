@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = "!spam";
+const prefix = "Enurii";
 
 client.on('ready', () => {
     console.log('I feel alive');
@@ -21,13 +21,16 @@ client.on ("message", (msg) => {
     
     mention = message.content.users.first();
     
-    if (msg.startsWith (prefix + "send")) {
-        if (mention == null) { return; }
+    if (msg.startsWith (prefix + "spam!")) {
+        if (mention == null) return;
         message.delete();
-        mentionMessage = message.content.slice (8);
+        
+        mentionMessage = message.content.slice(8);
         mention.SendMessage (mentionMessage);
         message.channel.send ("you have successfully brought the plague to a victim...");
-    }
+    };
+
+});
     
 client.on('message', async (bots, message, args) => {
     let target = message.metions.user.first() || message.author
