@@ -5,12 +5,12 @@ const client = new Discord.Client();
 client.on('ready', () => {
     console.log('I feel alive');
 
-    //client.channels.find(x => x.name === 'ostentatious-declaration').send('ɢʀᴇᴇᴛɪɴɢs, ᴘᴀᴛʜᴇᴛɪᴄ ғᴀʟʟɪʙʟᴇ ᴄʀᴇᴀᴛᴜʀᴇs... ʜᴏᴡ ᴍᴀʏ ɪ ʜᴇʟᴘ ʏᴏᴜ?')
+    client.channels.find(x => x.name === 'ostentatious-declaration').send('ɢʀᴇᴇᴛɪɴɢs, ᴘᴀᴛʜᴇᴛɪᴄ ғᴀʟʟɪʙʟᴇ ᴄʀᴇᴀᴛᴜʀᴇs... ʜᴏᴡ ᴍᴀʏ ɪ ʜᴇʟᴘ ʏᴏᴜ?')
 });
 
 client.on('message', (msg) => {
     if (msg.content === 'Hello Enurii') {
-        msg.channel.send('Greetings... ${msg.author.username}');
+        msg.channel.send('Greetings... <@%ID%> ');
     }
 });
 client.on('message', async msg => {
