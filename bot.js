@@ -14,7 +14,7 @@ client.on('message', (msg) => {
     }
 });
 
-client.on ("message", (message) => {
+client.on ("message", (msg) => {
     msg = message.content.toLowerCase();
     if (message.author.bot) return;
     mention = message.content.users.first();
@@ -23,7 +23,7 @@ client.on ("message", (message) => {
         message.delete();
         mentionMessage = message.content.slice (8);
         mention.SendMessage (mentionMessage);
-        message.channel.send ("it has been done");
+        message.channel.send ("you have successfully brought the plague to a victim...");
 
 client.on('message', async (bots, message, args) => {
     let target = message.metions.user.first() || message.author
