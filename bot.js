@@ -16,15 +16,19 @@ client.on('message', (msg) => {
 
 client.on ("message", (msg) => {
     msg = message.content.toLowerCase();
+    
     if (message.author.bot) return;
+    
     mention = message.content.users.first();
+    
     if (msg.startsWith (prefix + "send")) {
         if (mention == null) { return; }
         message.delete();
         mentionMessage = message.content.slice (8);
         mention.SendMessage (mentionMessage);
         message.channel.send ("you have successfully brought the plague to a victim...");
-
+    }
+    
 client.on('message', async (bots, message, args) => {
     let target = message.metions.user.first() || message.author
     
