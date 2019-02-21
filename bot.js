@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 var client = new Discord.Client();
+var profanities = require('profanities')
 
 //ɢʀᴇᴇᴛɪɴɢs, ᴘᴀᴛʜᴇᴛɪᴄ ғᴀʟʟɪʙʟᴇ ᴄʀᴇᴀᴛᴜʀᴇs... ʜᴏᴡ ᴍᴀʏ ɪ ʜᴇʟᴘ ʏᴏᴜ?
 
