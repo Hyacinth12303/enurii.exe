@@ -4,10 +4,11 @@ var client = new Discord.Client();
 //ɢʀᴇᴇᴛɪɴɢs, ᴘᴀᴛʜᴇᴛɪᴄ ғᴀʟʟɪʙʟᴇ ᴄʀᴇᴀᴛᴜʀᴇs... ʜᴏᴡ ᴍᴀʏ ɪ ʜᴇʟᴘ ʏᴏᴜ?
 
 client.on('ready', () => {
-    console.log('I feel alive');
-    client.user.setActivity ("BEING A REAL LIFE HUMAN SIMULATOR v1.0.0,... need help? scream for it.[Enurii!help]")
-
-    client.channels.find(x => x.name === 'ostentatious-declaratious').send('*you sense a strange, eeriee vibe as if a chaotic entity has been awoken...*')
+    console.log(`you sense a strange, eeriee vibe as if an unknown entity has been awoken...`);
+    client.user.setStatus('online')
+    client.user.setActivity (`THE LIVES OF THE IGNORANTS v3.6.6 with ${client.guilds.size} servers and ${client.users.size} users...`)
+    //client.user.setActivity ("BEING A REAL LIFE HUMAN SIMULATOR!! v1.0.0")
+    client.channels.find(x => x.name === 'ostentatious-declaratious').send('Greetings @everyone ... I am Enurii. Need help? scream for it. `[Enurii!help]`')    
 });
 
 const prefix = "Enurii!";
@@ -19,10 +20,6 @@ client.on ("message", (message) => {
     
     if (message.author.bot) return;
 
-    //help function
-    if (message.content.startsWith(prefix + "help")){
-        message.channel.send('```Greetings, I am Enurii, a tested and verified robot that is able to send plagues to a desired host. To execute the command, type [Enurii!spam @<username> <message>] and I will take care of everything.```')
-    }
     //spam function
     mention = message.mentions.users.first();
     if (message.content.startsWith(prefix + "spam")){
@@ -38,12 +35,25 @@ client.on ("message", (message) => {
     //extra: rewards, currency, lvl up, ranks
 });
 
-//out of my control...
-client.on ("message", (message) => {
-    if (message.content.startsWith ("Guide_Enurii")) { 
-        message.channel.send("perhaps not");  
+//help function
+client.on('message', (message) => {
+    //help function
+    var help = new Discord.RichEmbed()
+        .setTitle("Guide o Enurii: command help manual")
+        .setAuthor("ᴇиυяιι", client.user.avatarURL)
+        .setDescription("CRY FOR HELP? say no more to Guide o Enurii!")
+        .addField("Introduction", "I am Enurii. Whenever people aren't responding or reply to your message.. Don't fret because I will help you!!")
+        .addField("Purpose", "I only **__attract attention__** to a certain member, not sending them the message you wanted...")
+        .addField("How to Enurii","I only respond to a certain command called `Enurii!`. It must be followed to a certain keyword.")
+        .addField("Format", "`Enurii! + [command] + [metion] + [number of messages]`")
+        .setColor(0x8bff84)
+        .setTimestamp(new Date)
+        .setThumbnail(client.user.avatarURL)
+        .setFooter("lets us now start a peaceful riot : )", client.user.avatarURL)
+    if (message.content.startsWith(prefix + "help")){
+        message.channel.send(help)
+        message.delete();
     } 
-
 });
 
 //my biddings
@@ -88,4 +98,26 @@ client.on("message", (message) => {
     } 
 
 });
+//modified communication
+client.on('message', (message)=>{
+    const hai = message.content.toLowerCase();
+    //extras
+    if(hai.startsWith('hewwo')) {
+        message.channel.send('OwO');
+    }
+    if(hai.startsWith('hello')){
+        message.channel.send('hi')
+    }
+    if (hai.startsWith("yes")){
+        message.channel.send ("Jesus a day keeps the sins away : )", {files: ["./imageries/jesus-christ.jpg"]})
+    }
+    for (x = 0; x < profanities.length; x++){
+        if (message.content.toLowerCase() == profanities[x].toLowerCase()){
+            message.channel.send("**sTOP SWEARING IN THIS CHRISTIAN SERVER**", {files: ["./imageries/unhappy-jesus.jpg"]})
+            message.delete()
+            return;
+        }
+    }
+});
+
 client.login(process.env.BOT_TOKEN);
